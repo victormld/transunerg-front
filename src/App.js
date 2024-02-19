@@ -1,10 +1,16 @@
 import React from "react"
-import MapView from "./components/MapView"
+import MapView from "./components/MapView.jsx"
 import "./App.css";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
-      <MapView/>
+      <main>
+        {/*TODO: vistas de genesis */}
+        <MapView/>
+        <Footer/>
+      </main>
+
   );
 }
 
