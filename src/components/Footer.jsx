@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Nav } from 'reactstrap';
+
 
 const Footer = () => {
     return (
-        <div >Traductores e Interpretes / Equipo de Estudiantes 2024 </div>
-    )
-}
-
-export default Footer
+        <Nav className='bg-primary text-white fixed-bottom'>
+            <p id="barraInferior" className='container-fluid text-center'>Traductores e Interpretes / Equipo de Estudiantes 2024</p>
+        </Nav>
+    );
+    
+};
+export default Footer;
