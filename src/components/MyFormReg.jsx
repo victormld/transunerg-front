@@ -1,13 +1,32 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Container, Form, FormGroup, Label, Row, Col } from 'reactstrap';
+import peticionAxios from '../config/axios';
+import { useNavigate } from 'react-router-dom';
 
 const MyFormReg = () => {
 
     const { register, formState:{errors},handleSubmit } = useForm();
+    const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = async(data) => {
+        //console.log(data)
+        try {
+            // Hacemos la peticion de logeo con el backend
+            const registroUsuario = await peticionAxios.post("auth/registerUser", data);
+
+            //Si hay un error lo retornamos
+            if (registroUsuario.data.code !== 200){
+                return alert(registroUsuario.data.msg);
+            }
+
+            //Regresamos a la pagina principal
+            navigate("/");
+        } catch (error) {
+            console.log(error.message);
+            alert("Hubo un error al crear el registro");
+            alert(error.message);
+        }
     }
 
     return (
@@ -47,14 +66,13 @@ const MyFormReg = () => {
                         <input className='form-control' type="text" {...register('brand', {required: true})}/>
                         {errors.password?.type==='required' && <p>El campo es obligatorio</p>}
                     </FormGroup>
-                    <Button href='#' color='primary' type="submit" value="Enviar" className='container-fluid'>
+                    <Button     color='primary' type="submit" value="Enviar" className='container-fluid'>
                         Registrar
                     </Button>
                 </Form>
                 </Col>
             </Row>
         </Container>
-
     )
 }
 

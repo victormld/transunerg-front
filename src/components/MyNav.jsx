@@ -1,11 +1,20 @@
 import React from 'react'
-import { Navbar, NavbarBrand } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Nav ,Navbar, NavbarBrand } from 'reactstrap'
+
+
 const MyNav = () => {
     return (
-        <Navbar color="info" className='mb-5'>
-            <NavbarBrand href="/" className='text-white'>
-                Conductor
-            </NavbarBrand>
+        <Navbar className='mb-5 bg-fondos'>
+            <Nav>
+                <Link to={'/Inicio'}>
+                    <NavbarBrand className='text-white'>
+                        <p>
+                            Conductor
+                        </p>
+                    </NavbarBrand>
+                </Link> 
+            </Nav>          
         </Navbar>
     )
 }
