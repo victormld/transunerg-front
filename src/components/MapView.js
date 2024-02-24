@@ -37,4 +37,4 @@ const MapView = ()=>{
     </MapContainer>
 }
 
-export default MapView
+export default MapView 
