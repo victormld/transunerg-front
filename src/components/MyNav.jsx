@@ -5,15 +5,22 @@ import { Nav ,Navbar, NavbarBrand } from 'reactstrap'
 
 const MyNav = () => {
     return (
-        <Navbar className='mb-5 bg-fondos'>
+        <Navbar className='bg-infos mb-5'>
             <Nav>
                 <Link to={'/Inicio'}>
-                    <NavbarBrand className='text-white'>
-                        <p>
+                    <NavbarBrand>
+                        <p className='mx-3'>
                             Conductor
                         </p>
                     </NavbarBrand>
                 </Link> 
+                <Link to={'/'}>
+                    <NavbarBrand>
+                        <p className='mx-3'>
+                            Inicio
+                        </p>
+                    </NavbarBrand>
+                </Link>
             </Nav>          
         </Navbar>
     )
